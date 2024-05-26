@@ -12,6 +12,8 @@ function addtask() {
     li.style.fontSize="30px"
     var editBtn = document.createElement("button")
     editBtn.innerHTML = "EDIT"
+    editBtn.setAttribute("onClick" , "editToDo(this)")
+
     var deleteBtn = document.createElement("button")
     deleteBtn.innerHTML = "DELETE"
     deleteBtn.setAttribute("onClick", "delToDo(this)")
@@ -33,5 +35,11 @@ function deleteall() {
 
 function delToDo (ele) {
     console.log("delTodo", ele.parentNode)
-    ele.parentNode.remove()
+    ele.parentNode.remove()    
+}
+
+function editToDo(ele) {
+    var editVal = prompt("Enter Value", ele.previousSibling.nodeValue)
+    console.log (editVal)
+    ele.previousSibling.nodeValue = editVal
 }
